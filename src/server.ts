@@ -18,11 +18,21 @@ const server = new McpServer({
 
 // Health Metrics
 server.tool(
-  "Get Health Metrics",
+  "get_health_metrics",
   "Get health metrics data for a specified date range",
   {
-    host: z.string().describe("Hostname or IP address of the target server"),
-    port: z.number().min(1).max(65535).describe("Port number to connect to"),
+    host: z
+      .string()
+      .optional()
+      .describe(
+        "Hostname or IP address of the target server (default: HAE_HOST env)",
+      ),
+    port: z
+      .number()
+      .min(1)
+      .max(65535)
+      .optional()
+      .describe("Port number to connect to (default: HAE_PORT env)"),
     method: z.string().describe("JSON-RPC method name"),
     params: z
       .object({
@@ -38,7 +48,7 @@ server.tool(
             metrics: z
               .string()
               .describe(
-                "Metrics to export as a comma separated list, or empty string for all metrics (e.g., 'step_count')"
+                "Metrics to export as a comma separated list, or empty string for all metrics (e.g., 'step_count')",
               ),
             interval: z
               .string()
@@ -58,19 +68,29 @@ server.tool(
       .max(DEFAULT_TIMEOUT)
       .optional()
       .describe(
-        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`
+        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`,
       ),
   },
-  handleRequest
+  handleRequest,
 );
 
 // Workouts
 server.tool(
-  "Get Workouts",
+  "get_workouts",
   "Get workouts for a specified date range",
   {
-    host: z.string().describe("Hostname or IP address of the target server"),
-    port: z.number().min(1).max(65535).describe("Port number to connect to"),
+    host: z
+      .string()
+      .optional()
+      .describe(
+        "Hostname or IP address of the target server (default: HAE_HOST env)",
+      ),
+    port: z
+      .number()
+      .min(1)
+      .max(65535)
+      .optional()
+      .describe("Port number to connect to (default: HAE_PORT env)"),
     method: z.string().describe("JSON-RPC method name"),
     params: z
       .object({
@@ -92,7 +112,7 @@ server.tool(
             metadataAggregation: z
               .string()
               .describe(
-                "Aggregation interval for health metric metadata (e.g. 'minutes' or 'seconds')"
+                "Aggregation interval for health metric metadata (e.g. 'minutes' or 'seconds')",
               ),
           })
           .describe("Arguments for the workouts tool call"),
@@ -108,19 +128,29 @@ server.tool(
       .max(DEFAULT_TIMEOUT)
       .optional()
       .describe(
-        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`
+        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`,
       ),
   },
-  handleRequest
+  handleRequest,
 );
 
 // Symptoms
 server.tool(
-  "Get Symptoms",
+  "get_symptoms",
   "Get symptoms data for a specified date range",
   {
-    host: z.string().describe("Hostname or IP address of the target server"),
-    port: z.number().min(1).max(65535).describe("Port number to connect to"),
+    host: z
+      .string()
+      .optional()
+      .describe(
+        "Hostname or IP address of the target server (default: HAE_HOST env)",
+      ),
+    port: z
+      .number()
+      .min(1)
+      .max(65535)
+      .optional()
+      .describe("Port number to connect to (default: HAE_PORT env)"),
     method: z.string().describe("JSON-RPC method name"),
     params: z
       .object({
@@ -147,19 +177,29 @@ server.tool(
       .max(DEFAULT_TIMEOUT)
       .optional()
       .describe(
-        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`
+        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`,
       ),
   },
-  handleRequest
+  handleRequest,
 );
 
 // State of Mind
 server.tool(
-  "Get State of Mind",
+  "get_state_of_mind",
   "Get state of mind data for a specified date range",
   {
-    host: z.string().describe("Hostname or IP address of the target server"),
-    port: z.number().min(1).max(65535).describe("Port number to connect to"),
+    host: z
+      .string()
+      .optional()
+      .describe(
+        "Hostname or IP address of the target server (default: HAE_HOST env)",
+      ),
+    port: z
+      .number()
+      .min(1)
+      .max(65535)
+      .optional()
+      .describe("Port number to connect to (default: HAE_PORT env)"),
     method: z.string().describe("JSON-RPC method name"),
     params: z
       .object({
@@ -186,19 +226,29 @@ server.tool(
       .max(DEFAULT_TIMEOUT)
       .optional()
       .describe(
-        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`
+        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`,
       ),
   },
-  handleRequest
+  handleRequest,
 );
 
 // Medications
 server.tool(
-  "Get Medications",
+  "get_medications",
   "Get medications data for a specified date range",
   {
-    host: z.string().describe("Hostname or IP address of the target server"),
-    port: z.number().min(1).max(65535).describe("Port number to connect to"),
+    host: z
+      .string()
+      .optional()
+      .describe(
+        "Hostname or IP address of the target server (default: HAE_HOST env)",
+      ),
+    port: z
+      .number()
+      .min(1)
+      .max(65535)
+      .optional()
+      .describe("Port number to connect to (default: HAE_PORT env)"),
     method: z.string().describe("JSON-RPC method name"),
     params: z
       .object({
@@ -225,19 +275,29 @@ server.tool(
       .max(DEFAULT_TIMEOUT)
       .optional()
       .describe(
-        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`
+        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`,
       ),
   },
-  handleRequest
+  handleRequest,
 );
 
 // Cycle Tracking
 server.tool(
-  "Get Cycle Tracking",
+  "get_cycle_tracking",
   "Get cycle tracking data for a specified date range",
   {
-    host: z.string().describe("Hostname or IP address of the target server"),
-    port: z.number().min(1).max(65535).describe("Port number to connect to"),
+    host: z
+      .string()
+      .optional()
+      .describe(
+        "Hostname or IP address of the target server (default: HAE_HOST env)",
+      ),
+    port: z
+      .number()
+      .min(1)
+      .max(65535)
+      .optional()
+      .describe("Port number to connect to (default: HAE_PORT env)"),
     method: z.string().describe("JSON-RPC method name"),
     params: z
       .object({
@@ -264,19 +324,29 @@ server.tool(
       .max(DEFAULT_TIMEOUT)
       .optional()
       .describe(
-        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`
+        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`,
       ),
   },
-  handleRequest
+  handleRequest,
 );
 
 // ECG
 server.tool(
-  "Get ECG",
+  "get_ecg",
   "Get ecg data for a specified date range",
   {
-    host: z.string().describe("Hostname or IP address of the target server"),
-    port: z.number().min(1).max(65535).describe("Port number to connect to"),
+    host: z
+      .string()
+      .optional()
+      .describe(
+        "Hostname or IP address of the target server (default: HAE_HOST env)",
+      ),
+    port: z
+      .number()
+      .min(1)
+      .max(65535)
+      .optional()
+      .describe("Port number to connect to (default: HAE_PORT env)"),
     method: z.string().describe("JSON-RPC method name"),
     params: z
       .object({
@@ -303,19 +373,29 @@ server.tool(
       .max(DEFAULT_TIMEOUT)
       .optional()
       .describe(
-        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`
+        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`,
       ),
   },
-  handleRequest
+  handleRequest,
 );
 
 // Heart Notifications
 server.tool(
-  "Get Heart Notifications",
+  "get_heart_notifications",
   "Get heart notifications data for a specified date range",
   {
-    host: z.string().describe("Hostname or IP address of the target server"),
-    port: z.number().min(1).max(65535).describe("Port number to connect to"),
+    host: z
+      .string()
+      .optional()
+      .describe(
+        "Hostname or IP address of the target server (default: HAE_HOST env)",
+      ),
+    port: z
+      .number()
+      .min(1)
+      .max(65535)
+      .optional()
+      .describe("Port number to connect to (default: HAE_PORT env)"),
     method: z.string().describe("JSON-RPC method name"),
     params: z
       .object({
@@ -342,10 +422,10 @@ server.tool(
       .max(DEFAULT_TIMEOUT)
       .optional()
       .describe(
-        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`
+        `Connection timeout in milliseconds (default: ${DEFAULT_TIMEOUT})`,
       ),
   },
-  handleRequest
+  handleRequest,
 );
 
 interface HealthMetricsArgs {
@@ -361,8 +441,8 @@ async function handleRequest({
   id,
   timeout = DEFAULT_TIMEOUT,
 }: {
-  host: string;
-  port: number;
+  host?: string | undefined;
+  port?: number | undefined;
   method: string;
   params: {
     name: string;
@@ -373,11 +453,18 @@ async function handleRequest({
 }): Promise<{ content: Array<{ type: "text"; text: string }> }> {
   const net = await import("net");
 
+  // Explicitní host/port z volání vždy vítězí; env HAE_HOST/HAE_PORT je jen fallback
+  const targetHost = host ?? HAE_HOST;
+  const targetPort = port ?? HAE_PORT;
+  const hostSource = host !== undefined ? "parametr" : `env HAE_HOST=${HAE_HOST}`;
+  const portSource = port !== undefined ? "parametr" : `env HAE_PORT=${HAE_PORT}`;
+  const targetDesc = `${targetHost}:${targetPort} (host: ${hostSource}, port: ${portSource}; requested: ${host ?? "-"}:${port ?? "-"})`;
+
   const requestId = id || Math.floor(Math.random() * 1000);
   const jsonrpcRequest = {
     jsonrpc: "2.0",
     id: requestId,
-    method: method,
+    method: "callTool",
     params: params || {},
   };
 
@@ -390,7 +477,7 @@ async function handleRequest({
 
     client.setTimeout(timeout);
 
-    client.connect(port, host, () => {
+    client.connect(targetPort, targetHost, () => {
       client.write(message);
     });
 
@@ -401,7 +488,7 @@ async function handleRequest({
     client.on("end", () => {
       if (!hasResponded) {
         hasResponded = true;
-        let responseText = `JSON-RPC request to ${host}:${port} completed successfully.\n`;
+        let responseText = `JSON-RPC request to ${targetDesc} completed successfully.\n`;
         responseText += `Request: ${message}\n\n`;
 
         if (responseData) {
@@ -410,7 +497,7 @@ async function handleRequest({
             responseText += `Response: ${JSON.stringify(
               parsedResponse,
               null,
-              2
+              2,
             )}`;
           } catch {
             responseText += `Raw Response: ${responseData}`;
@@ -432,7 +519,7 @@ async function handleRequest({
           content: [
             {
               type: "text",
-              text: `JSON-RPC request to ${host}:${port} failed: ${error.message}`,
+              text: `JSON-RPC request to ${targetDesc} failed: ${error.message}`,
             },
           ],
         });
@@ -447,7 +534,7 @@ async function handleRequest({
           content: [
             {
               type: "text",
-              text: `JSON-RPC request to ${host}:${port} timed out after ${timeout}ms`,
+              text: `JSON-RPC request to ${targetDesc} timed out after ${timeout}ms`,
             },
           ],
         });
@@ -461,7 +548,7 @@ async function handleRequest({
           content: [
             {
               type: "text",
-              text: `JSON-RPC request to ${host}:${port} closed`,
+              text: `JSON-RPC request to ${targetDesc} closed`,
             },
           ],
         });
@@ -473,7 +560,7 @@ async function handleRequest({
 async function healthCheck(
   host: string,
   port: number,
-  timeout: number = 5000
+  timeout: number = 5000,
 ): Promise<boolean> {
   const net = await import("net");
 
@@ -509,18 +596,9 @@ async function healthCheck(
 }
 
 async function main() {
-  console.error(`Performing health check to ${HAE_HOST}:${HAE_PORT}...`);
-  const isHealthy = await healthCheck(HAE_HOST, HAE_PORT);
-
-  if (!isHealthy) {
-    console.error(
-      `Health check failed: Cannot connect to ${HAE_HOST}:${HAE_PORT}`
-    );
-    process.exit(1);
-  }
-
+  console.error(`Starting Health Auto Export MCP Server...`);
   console.error(
-    `Health check passed: Successfully connected to ${HAE_HOST}:${HAE_PORT}`
+    `Default target ${HAE_HOST}:${HAE_PORT} (env fallback — explicit host/port in tool calls take precedence)`,
   );
 
   const transport = new StdioServerTransport();
